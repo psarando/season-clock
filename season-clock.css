@@ -1,0 +1,394 @@
+/**
+ * days-per-year = 365.242190402
+ * days-per-moonth = 29.530588853
+ * deg-per-day-summer = 180 / (days-per-year - 180) = 0.971700883095
+ * deg-per-moonth-summer = 28.694899267
+ */
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+/*  background: linear-gradient(to bottom,
+                              lightskyblue 280px,
+                              gold 350px,
+                              steelblue 385px,
+                              mediumblue 420px,
+                              midnightblue 490px);*/
+  margin: 4px;
+}
+
+.clock {
+  width:700px;
+  height:700px;
+  margin: auto;
+  background: linear-gradient(to bottom,
+                              lightskyblue 40%,
+                              gold 50%,
+                              steelblue 55%,
+                              mediumblue 60%,
+                              midnightblue 70%);
+  border-radius:50%;
+}
+
+.seasons {
+  width:600px;
+  height:600px;
+  background-color: gold;
+  transform: rotate(180deg); -webkit-transform: rotate(180deg);
+  top: 50px;
+  margin: auto;
+  border-radius:50%;
+  position:relative;
+}
+
+.season {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  clip: rect(0px, 600px, 600px, 300px);
+}
+
+.winter-season    { transform: rotate(-90.704116721deg); -webkit-transform: rotate(-90.704116721deg); }
+.spring-season    { transform: rotate( -3.4294517575deg); -webkit-transform: rotate( -3.4294517575deg); }
+.ocean-season     { transform: rotate( 89.5141495585deg); -webkit-transform: rotate( 89.5141495585deg); }
+.harvest-season   { transform: rotate(179.29588328deg); -webkit-transform: rotate(179.29588328deg); }
+
+.moonth { clip: rect(0px, 300px, 600px, 0px); }
+
+.newyear-moonth      { transform:rotate(-88.591766559deg); -webkit-transform:rotate(-88.591766559deg); }
+.valentines-moonth   { transform:rotate(-59.061177706deg); -webkit-transform:rotate(-59.061177706deg); }
+.primavera-moonth    { transform:rotate(-29.530588853deg); -webkit-transform:rotate(-29.530588853deg); }
+.spring-moonth       { transform:rotate(-86.084697801deg); -webkit-transform:rotate(-86.084697801deg); }
+.sky-moonth          { transform:rotate(-57.389798534deg); -webkit-transform:rotate(-57.389798534deg); }
+.sol-moonth          { transform:rotate(-28.694899267deg); -webkit-transform:rotate(-28.694899267deg); }
+.beach-moonth        { transform:rotate(-86.084697801deg); -webkit-transform:rotate(-86.084697801deg); }
+.ocean-moonth        { transform:rotate(-57.389798534deg); -webkit-transform:rotate(-57.389798534deg); }
+.weed-moonth         { transform:rotate(-28.694899267deg); -webkit-transform:rotate(-28.694899267deg); }
+.harvest-moonth      { transform:rotate(-88.591766559deg); -webkit-transform:rotate(-88.591766559deg); }
+.wine-moonth         { transform:rotate(-59.061177706deg); -webkit-transform:rotate(-59.061177706deg); }
+.feast-moonth        { transform:rotate(-29.530588853deg); -webkit-transform:rotate(-29.530588853deg); }
+
+.center {
+  position: absolute;
+  background-color: black;
+  width: 300px;
+  height: 300px;
+  top: 150px;
+  left: 150px;
+  z-index: 100;
+  border-radius: 50%;
+}
+
+.sun-cap {
+  position: absolute;
+  background-color: gold;
+  width:  50px;
+  height: 50px;
+  top:  275px;
+  left: 275px;
+  z-index:9999;
+}
+.sun-cap:before, .sun-cap:after {
+  content: "";
+  position: absolute;
+  background-color: gold;
+  height: 50px;
+  width: 50px;
+  top: 0;
+  left: 0;
+}
+.sun-cap:before { transform: rotate(15deg); -webkit-transform: rotate(15deg); }
+.sun-cap:after { transform: rotate(30deg); -webkit-transform: rotate(30deg); }
+.sun-piece-2 { transform: rotate(45deg); -webkit-transform: rotate(45deg); }
+
+.hour, .hours, .days, .minutes, .seconds {
+  background-color:black;
+  position:absolute;
+  transform-origin: left; -webkit-transform-origin: left;
+  text-align:right;
+  height:4px;
+  top:298px;
+  left:300px;
+  padding: 0 10px 0 0;
+  border-radius: 50%;
+  font-weight:bold;
+  transition: transform 1000ms linear;
+}
+
+.days {
+  color: white;
+  width: 295px;
+  z-index: 20;
+}
+
+.hours {
+  color:white;
+  width:310px;
+  z-index:20;
+}
+
+.minutes {
+  width: 100px;
+  z-index: 200;
+}
+
+.seconds {
+  width: 60px;
+  z-index: 200;
+}
+
+.star-box {
+  background-color: transparent;
+  height: 15px;
+  top: 292px;
+}
+
+.star-cap {
+  position: absolute;
+  background-color: azure;
+  width:  15px;
+  height: 15px;
+  z-index: 200;
+  transform: rotate(45deg); -webkit-transform: rotate(45deg);
+}
+.star-cap:before, .star-cap:after {
+  content: "";
+  position: absolute;
+  background-color: azure;
+  height: 15px;
+  width: 15px;
+  top: 0;
+  left: 0;
+}
+.star-cap:before { transform: rotate(30deg); -webkit-transform: rotate(30deg); }
+.star-cap:after { transform: rotate(60deg); -webkit-transform: rotate(60deg); }
+
+.star-minutes { left: 104px; }
+.star-seconds { left: 64px; }
+
+.sun-box {
+  background-color: transparent;
+  height: 30px;
+  top: 285px;
+}
+
+.sun {
+  position: absolute;
+  width:  30px;
+  height: 30px;
+  left: 310px;
+  border-radius: 50%;
+}
+
+.earth-box {
+  background-color: transparent;
+  height: 40px;
+  top: 280px;
+}
+
+.earth {
+  position: absolute;
+  overflow: hidden;
+  background: blue;
+  width:  40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.earth-apsis {
+  left: 175px;
+}
+
+.north-cap {
+  background-color: white;
+  left: 35px;
+}
+
+.south-cap {
+  background-color: white;
+  left: -35px;
+}
+
+.moon {
+  position: absolute;
+  overflow: hidden;
+  background-color: yellow;
+  border-radius: 50%;
+  width:  30px;
+  height: 30px;
+  left: 240px;
+  top:  5px;
+  transform: rotate(15deg); -webkit-transform: rotate(15deg);
+}
+
+.moon-darkside {
+  background-color: midnightblue;
+  position: relative;
+  top:  7px;
+  left: 0px;
+}
+
+.hour {
+  background-color:transparent;
+  width:20px;
+  height:20px;
+  top:290px;
+  left:290px;
+  transform-origin: center; -webkit-transform-origin: center;
+  z-index:30;
+}
+
+.hour-text {
+  position: absolute;
+  text-align: center;
+  transform-origin: center; -webkit-transform-origin: center;
+  width: 20px;
+  left: 325px;
+}
+
+.hour-night { color:azure; }
+
+.hour-1  { transform: rotate(285deg); -webkit-transform: rotate(285deg); }
+.hour-2  { transform: rotate(300deg); -webkit-transform: rotate(300deg); }
+.hour-3  { transform: rotate(315deg); -webkit-transform: rotate(315deg); }
+.hour-4  { transform: rotate(330deg); -webkit-transform: rotate(330deg); }
+.hour-5  { transform: rotate(345deg); -webkit-transform: rotate(345deg); }
+.hour-6  { transform: rotate(  0deg); -webkit-transform: rotate(  0deg); }
+.hour-7  { transform: rotate( 15deg); -webkit-transform: rotate( 15deg); }
+.hour-8  { transform: rotate( 30deg); -webkit-transform: rotate( 30deg); }
+.hour-9  { transform: rotate( 45deg); -webkit-transform: rotate( 45deg); }
+.hour-10 { transform: rotate( 60deg); -webkit-transform: rotate( 60deg); }
+.hour-11 { transform: rotate( 75deg); -webkit-transform: rotate( 75deg); }
+.hour-12 { transform: rotate( 90deg); -webkit-transform: rotate( 90deg); }
+.hour-13 { transform: rotate(105deg); -webkit-transform: rotate(105deg); }
+.hour-14 { transform: rotate(120deg); -webkit-transform: rotate(120deg); }
+.hour-15 { transform: rotate(135deg); -webkit-transform: rotate(135deg); }
+.hour-16 { transform: rotate(150deg); -webkit-transform: rotate(150deg); }
+.hour-17 { transform: rotate(165deg); -webkit-transform: rotate(165deg); }
+.hour-18 { transform: rotate(180deg); -webkit-transform: rotate(180deg); }
+.hour-19 { transform: rotate(195deg); -webkit-transform: rotate(195deg); }
+.hour-20 { transform: rotate(210deg); -webkit-transform: rotate(210deg); }
+.hour-21 { transform: rotate(225deg); -webkit-transform: rotate(225deg); }
+.hour-22 { transform: rotate(240deg); -webkit-transform: rotate(240deg); }
+.hour-23 { transform: rotate(255deg); -webkit-transform: rotate(255deg); }
+.hour-24 { transform: rotate(270deg); -webkit-transform: rotate(270deg); }
+
+.hour-1-text  {transform: rotate(-105deg); -webkit-transform: rotate(-105deg); }
+.hour-2-text  {transform: rotate(-120deg); -webkit-transform: rotate(-120deg); }
+.hour-3-text  {transform: rotate(-135deg); -webkit-transform: rotate(-135deg); }
+.hour-4-text  {transform: rotate(-150deg); -webkit-transform: rotate(-150deg); }
+.hour-5-text  {transform: rotate(-165deg); -webkit-transform: rotate(-165deg); }
+.hour-6-text  {transform: rotate(-180deg); -webkit-transform: rotate(-180deg); }
+.hour-7-text  {transform: rotate( 165deg); -webkit-transform: rotate( 165deg); }
+.hour-8-text  {transform: rotate( 150deg); -webkit-transform: rotate( 150deg); }
+.hour-9-text  {transform: rotate( 135deg); -webkit-transform: rotate( 135deg); }
+.hour-10-text {transform: rotate( 120deg); -webkit-transform: rotate( 120deg); }
+.hour-11-text {transform: rotate( 105deg); -webkit-transform: rotate( 105deg); }
+.hour-12-text {transform: rotate(  90deg); -webkit-transform: rotate(  90deg); }
+.hour-13-text {transform: rotate(  75deg); -webkit-transform: rotate(  75deg); }
+.hour-14-text {transform: rotate(  60deg); -webkit-transform: rotate(  60deg); }
+.hour-15-text {transform: rotate(  45deg); -webkit-transform: rotate(  45deg); }
+.hour-16-text {transform: rotate(  30deg); -webkit-transform: rotate(  30deg); }
+.hour-17-text {transform: rotate(  15deg); -webkit-transform: rotate(  15deg); }
+.hour-18-text {transform: rotate(   0deg); -webkit-transform: rotate(   0deg); }
+.hour-19-text {transform: rotate( -15deg); -webkit-transform: rotate( -15deg); }
+.hour-20-text {transform: rotate( -30deg); -webkit-transform: rotate( -30deg); }
+.hour-21-text {transform: rotate( -45deg); -webkit-transform: rotate( -45deg); }
+.hour-22-text {transform: rotate( -60deg); -webkit-transform: rotate( -60deg); }
+.hour-23-text {transform: rotate( -75deg); -webkit-transform: rotate( -75deg); }
+.hour-24-text {transform: rotate( -90deg); -webkit-transform: rotate( -90deg); }
+
+.minute {
+  position: absolute;
+  background-color: transparent;
+  color: azure;
+  width: 20px;
+  height: 20px;
+  top: 290px;
+  left: 290px;
+  transform-origin: center; -webkit-transform-origin: center;
+  z-index: 300;
+}
+
+.minute-text {
+  position: absolute;
+  text-align: center;
+  transform-origin: center; -webkit-transform-origin: center;
+  width: 20px;
+  left: -135px;
+}
+
+.minute-5  { transform: rotate(120deg); -webkit-transform: rotate(120deg); }
+.minute-10 { transform: rotate(150deg); -webkit-transform: rotate(150deg); }
+.minute-15 { transform: rotate(180deg); -webkit-transform: rotate(180deg); }
+.minute-20 { transform: rotate(210deg); -webkit-transform: rotate(210deg); }
+.minute-25 { transform: rotate(240deg); -webkit-transform: rotate(240deg); }
+.minute-30 { transform: rotate(270deg); -webkit-transform: rotate(270deg); }
+.minute-35 { transform: rotate(300deg); -webkit-transform: rotate(300deg); }
+.minute-40 { transform: rotate(330deg); -webkit-transform: rotate(330deg); }
+.minute-45 { transform: rotate(0deg); -webkit-transform: rotate(0deg); }
+.minute-50 { transform: rotate(30deg); -webkit-transform: rotate(30deg); }
+.minute-55 { transform: rotate(60deg); -webkit-transform: rotate(60deg); }
+.minute-60 { transform: rotate(90deg); -webkit-transform: rotate(90deg); }
+
+.minute-5-text  { transform: rotate(60deg); -webkit-transform: rotate(60deg); }
+.minute-10-text { transform: rotate(30deg); -webkit-transform: rotate(30deg); }
+.minute-15-text { transform: rotate(0deg); -webkit-transform: rotate(0deg); }
+.minute-20-text { transform: rotate(330deg); -webkit-transform: rotate(330deg); }
+.minute-25-text { transform: rotate(300deg); -webkit-transform: rotate(300deg); }
+.minute-30-text { transform: rotate(270deg); -webkit-transform: rotate(270deg); }
+.minute-35-text { transform: rotate(240deg); -webkit-transform: rotate(240deg); }
+.minute-40-text { transform: rotate(210deg); -webkit-transform: rotate(210deg); }
+.minute-45-text { transform: rotate(180deg); -webkit-transform: rotate(180deg); }
+.minute-50-text { transform: rotate(150deg); -webkit-transform: rotate(150deg); }
+.minute-55-text { transform: rotate(120deg); -webkit-transform: rotate(120deg); }
+.minute-60-text { transform: rotate(90deg); -webkit-transform: rotate(90deg); }
+
+.ticks-box {
+  position: absolute;
+  background-color: transparent;
+  width: 600px;
+  height: 600px;
+}
+
+.day-tick-box {
+  position: absolute;
+  background-color: transparent;
+  width: 4px;
+  height: 1px;
+  top: -250px;
+  left: 348px;
+  transform-origin: center; -webkit-transform-origin: center;
+}
+
+.day-tick {
+  background-color: black;
+  transform-origin: center; -webkit-transform-origin: center;
+  width: 4px;
+  height: 1px;
+  left: 298px;
+  top: 0px;
+}
+
+.day-big-tick {
+  width: 8px;
+  left: 294px;
+}
+
+.star           { background-color: azure; }
+.holiday        { background-color: gold; }
+.newyear        { background-color: lightskyblue; }
+.valentines     { background-color: lavender; }
+.primavera      { background-color: yellowgreen; }
+.spring         { background-color: forestgreen; }
+.sky            { background-color: lightcyan; }
+.sol            { background-color: lemonchiffon; }
+.beach          { background-color: palegoldenrod; }
+.ocean          { background-color: mediumturquoise; }
+.weed           { background-color: darkolivegreen; }
+.harvest        { background-color: darkgoldenrod; }
+.wine           { background-color: orange; }
+.feast          { background-color: maroon; }
