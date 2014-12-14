@@ -19,21 +19,18 @@ $(document).ready(function() {
     function makeDayTicks() {
         var nextDate = getNewYear(new Date());
         var daysPerYear = getDaysPerYear(nextDate);
-        var ticks_box = $("<div>").addClass("ticks-box");
 
         for (var i = 1; i <= 89; i++, setNextDay(nextDate)) {
-            ticks_box.append(makeDayTick(nextDate));
+            $(".ticks-box").append(makeDayTick(nextDate));
         };
 
         for (var i = 90; i < (daysPerYear - 90); i++, setNextDay(nextDate)) {
-            ticks_box.append(makeDayTick(nextDate));
+            $(".ticks-box").append(makeDayTick(nextDate));
         };
 
         for (var i = (daysPerYear - 90); i <= daysPerYear; i++, setNextDay(nextDate)) {
-            ticks_box.append(makeDayTick(nextDate));
+            $(".ticks-box").append(makeDayTick(nextDate));
         };
-
-        $(".clock").append(ticks_box);
     }
 
     function makeDayTick(date) {
@@ -96,7 +93,7 @@ $(document).ready(function() {
 
         return $("<div>")
             .addClass("day-tick-box")
-            .css({'transform':'rotate(' + (getYearDegree(date)+90) + 'deg)'})
+            .css({'transform':'rotate(' + (getYearDegree(date)+270) + 'deg)'})
             .append(day_tick);
     }
 

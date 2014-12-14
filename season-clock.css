@@ -348,10 +348,13 @@ body {
 .minute-60-text { transform: rotate(90deg); -webkit-transform: rotate(90deg); }
 
 .ticks-box {
-  position: absolute;
+  position: relative;
   background-color: transparent;
   width: 600px;
   height: 600px;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
 }
 
 .day-tick-box {
@@ -359,8 +362,8 @@ body {
   background-color: transparent;
   width: 4px;
   height: 1px;
-  top: -250px;
-  left: 348px;
+  top: 299px;
+  left: 298px;
   transform-origin: center; -webkit-transform-origin: center;
 }
 
