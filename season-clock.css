@@ -1,8 +1,11 @@
 /**
- * days-per-year = 365.242190402
- * days-per-moonth = 29.530588853
- * deg-per-day-summer = 180 / (days-per-year - 180) = 0.971700883095
- * deg-per-moonth-summer = 28.694899267
+ * days-per-year = 365+31/128 = 365.2421875
+ * days-per-moonth = 29+82517/155520 = 29.53058770576
+ * days-per-spring = 92.75
+ * days-per-summer = 93.6421875
+ * days-per-autumn = 89.85
+ * days-per-winter = 89.00
+ * See http://www.sym454.org/seasons/
  */
 
 * {
@@ -10,12 +13,6 @@
 }
 
 body {
-/*  background: linear-gradient(to bottom,
-                              lightskyblue 280px,
-                              gold 350px,
-                              steelblue 385px,
-                              mediumblue 420px,
-                              midnightblue 490px);*/
   margin: 4px;
 }
 
@@ -27,8 +24,8 @@ body {
                               lightskyblue 40%,
                               gold 50%,
                               steelblue 55%,
-                              mediumblue 60%,
-                              midnightblue 70%);
+                              mediumblue 65%,
+                              midnightblue 75%);
   border-radius:50%;
 }
 
@@ -51,25 +48,25 @@ body {
   clip: rect(0px, 600px, 600px, 300px);
 }
 
-.winter-season    { transform: rotate(-90.704116721deg); -webkit-transform: rotate(-90.704116721deg); }
-.spring-season    { transform: rotate( -3.4294517575deg); -webkit-transform: rotate( -3.4294517575deg); }
-.ocean-season     { transform: rotate( 89.5141495585deg); -webkit-transform: rotate( 89.5141495585deg); }
-.harvest-season   { transform: rotate(179.29588328deg); -webkit-transform: rotate(179.29588328deg); }
+.winter-season    { transform: rotate(-90.206411907deg);  -webkit-transform: rotate(-90.206411907deg); }
+.spring-season    { transform: rotate( -3.549771638204deg); -webkit-transform: rotate( -3.549771638204deg); }
+.ocean-season     { transform: rotate( 89.51944736447deg);  -webkit-transform: rotate( 89.51944736447deg); }
+.harvest-season   { transform: rotate(179.3698312774deg);   -webkit-transform: rotate(179.3698312774deg); }
 
 .moonth { clip: rect(0px, 300px, 600px, 0px); }
 
-.newyear-moonth      { transform:rotate(-88.591766559deg); -webkit-transform:rotate(-88.591766559deg); }
-.valentines-moonth   { transform:rotate(-59.061177706deg); -webkit-transform:rotate(-59.061177706deg); }
-.primavera-moonth    { transform:rotate(-29.530588853deg); -webkit-transform:rotate(-29.530588853deg); }
-.spring-moonth       { transform:rotate(-86.084697801deg); -webkit-transform:rotate(-86.084697801deg); }
-.sky-moonth          { transform:rotate(-57.389798534deg); -webkit-transform:rotate(-57.389798534deg); }
-.sol-moonth          { transform:rotate(-28.694899267deg); -webkit-transform:rotate(-28.694899267deg); }
-.beach-moonth        { transform:rotate(-86.084697801deg); -webkit-transform:rotate(-86.084697801deg); }
-.ocean-moonth        { transform:rotate(-57.389798534deg); -webkit-transform:rotate(-57.389798534deg); }
-.weed-moonth         { transform:rotate(-28.694899267deg); -webkit-transform:rotate(-28.694899267deg); }
-.harvest-moonth      { transform:rotate(-88.591766559deg); -webkit-transform:rotate(-88.591766559deg); }
-.wine-moonth         { transform:rotate(-59.061177706deg); -webkit-transform:rotate(-59.061177706deg); }
-.feast-moonth        { transform:rotate(-29.530588853deg); -webkit-transform:rotate(-29.530588853deg); }
+.newyear-moonth      { transform:rotate(-89.58717618601deg); -webkit-transform:rotate(-89.58717618601deg); }
+.valentines-moonth   { transform:rotate(-59.72478412401deg); -webkit-transform:rotate(-59.72478412401deg); }
+.primavera-moonth    { transform:rotate(-29.86239206200deg); -webkit-transform:rotate(-29.86239206200deg); }
+.spring-moonth       { transform:rotate(-85.96505315963deg); -webkit-transform:rotate(-85.96505315963deg); }
+.sky-moonth          { transform:rotate(-57.31003543975deg); -webkit-transform:rotate(-57.31003543975deg); }
+.sol-moonth          { transform:rotate(-28.65501771988deg); -webkit-transform:rotate(-28.65501771988deg); }
+.beach-moonth        { transform:rotate(-85.14601050467deg); -webkit-transform:rotate(-85.14601050467deg); }
+.ocean-moonth        { transform:rotate(-56.76400700311deg); -webkit-transform:rotate(-56.76400700311deg); }
+.weed-moonth         { transform:rotate(-28.38200350156deg); -webkit-transform:rotate(-28.38200350156deg); }
+.harvest-moonth      { transform:rotate(-88.73966255487deg); -webkit-transform:rotate(-88.73966255487deg); }
+.wine-moonth         { transform:rotate(-59.15977503658deg); -webkit-transform:rotate(-59.15977503658deg); }
+.feast-moonth        { transform:rotate(-29.57988751830deg); -webkit-transform:rotate(-29.57988751830deg); }
 
 .center {
   position: absolute;

@@ -5,7 +5,7 @@
 
 $(document).ready(function() {
     var MILLISEC_PER_DAY = 24*60*60*1000;
-    var DAYS_PER_MOONTH = 29.530588853;
+    var DAYS_PER_MOONTH = 29+82517/155520;
     var NEW_MOON_PHASE_START = new Date(Date.UTC(2013, 0, 11, 19,44));
     var secondsBoost = 0;
     var minutesBoost = 0;

@@ -5,7 +5,7 @@ If the year was divided into a 24-hour clock, centered around the [solstices](ht
 
 To answer this question, I created this 'Season Clock' with just some HTML, CSS, and javascript. Inspired by the way the [Shire Reckoning Calendar](http://psarando.github.io/shire-reckoning) divides the year, this clock starts each year on Dec. 21st, at midnight at the bottom of the clock, and marks June 21st at noon (in non-leap years) at the top of the clock.
 
-The outer edge of the clock shows the hour of the day, and the center of the clock show the current minute and seconds.
+The outer edge of the clock shows the hour of the day, and the center of the clock shows the current minute and seconds.
 
 The middle part of the clock is divided into colored sections, each spanning the average length of a Moon cycle (about 29.5 days); in other words, each colored section is about 1-moonth of the year. The remaining days of the year are centered symmetrically near the dates of the [solstices](http://en.wikipedia.org/wiki/Solstice) and [equinoxes](http://en.wikipedia.org/wiki/Equinox). Notice that there are more days in the half of the year around the June solstice than there are around the December solstice, so the gold-colored, extra-days section is larger around the June solstice.
 
@@ -37,7 +37,7 @@ July 4th, 2014, near Earth's aphelion (furthest from the Sun).
 
 October 31st, 2014, near the Moon's 1st quarter.
 
-![2014-10-31 18:01:13](season-clock-oct-31.png)
+![2014-10-31 18:00:13](season-clock-oct-31.png)
 
 December 21st, the starting point of this clock, each year. Shown here in 2014 near a New Moon.
 
