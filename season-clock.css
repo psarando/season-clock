@@ -33,7 +33,7 @@ body {
   width:600px;
   height:600px;
   background-color: gold;
-  transform: rotate(180deg); -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
   top: 50px;
   margin: auto;
   border-radius:50%;
@@ -48,25 +48,25 @@ body {
   clip: rect(0px, 600px, 600px, 300px);
 }
 
-.winter-season    { transform: rotate(-90.206411907deg);  -webkit-transform: rotate(-90.206411907deg); }
-.spring-season    { transform: rotate( -3.549771638204deg); -webkit-transform: rotate( -3.549771638204deg); }
-.ocean-season     { transform: rotate( 89.51944736447deg);  -webkit-transform: rotate( 89.51944736447deg); }
-.harvest-season   { transform: rotate(179.3698312774deg);   -webkit-transform: rotate(179.3698312774deg); }
+.winter-season    { transform: rotate(-90.206411907deg); }
+.spring-season    { transform: rotate( -3.549771638204deg); }
+.ocean-season     { transform: rotate( 89.51944736447deg); }
+.harvest-season   { transform: rotate(179.3698312774deg); }
 
 .moonth { clip: rect(0px, 300px, 600px, 0px); }
 
-.newyear-moonth      { transform:rotate(-89.58717618601deg); -webkit-transform:rotate(-89.58717618601deg); }
-.valentines-moonth   { transform:rotate(-59.72478412401deg); -webkit-transform:rotate(-59.72478412401deg); }
-.primavera-moonth    { transform:rotate(-29.86239206200deg); -webkit-transform:rotate(-29.86239206200deg); }
-.spring-moonth       { transform:rotate(-85.96505315963deg); -webkit-transform:rotate(-85.96505315963deg); }
-.sky-moonth          { transform:rotate(-57.31003543975deg); -webkit-transform:rotate(-57.31003543975deg); }
-.sol-moonth          { transform:rotate(-28.65501771988deg); -webkit-transform:rotate(-28.65501771988deg); }
-.beach-moonth        { transform:rotate(-85.14601050467deg); -webkit-transform:rotate(-85.14601050467deg); }
-.ocean-moonth        { transform:rotate(-56.76400700311deg); -webkit-transform:rotate(-56.76400700311deg); }
-.weed-moonth         { transform:rotate(-28.38200350156deg); -webkit-transform:rotate(-28.38200350156deg); }
-.harvest-moonth      { transform:rotate(-88.73966255487deg); -webkit-transform:rotate(-88.73966255487deg); }
-.wine-moonth         { transform:rotate(-59.15977503658deg); -webkit-transform:rotate(-59.15977503658deg); }
-.feast-moonth        { transform:rotate(-29.57988751830deg); -webkit-transform:rotate(-29.57988751830deg); }
+.newyear-moonth      { transform:rotate(-89.58717618601deg); }
+.valentines-moonth   { transform:rotate(-59.72478412401deg); }
+.primavera-moonth    { transform:rotate(-29.86239206200deg); }
+.spring-moonth       { transform:rotate(-85.96505315963deg); }
+.sky-moonth          { transform:rotate(-57.31003543975deg); }
+.sol-moonth          { transform:rotate(-28.65501771988deg); }
+.beach-moonth        { transform:rotate(-85.14601050467deg); }
+.ocean-moonth        { transform:rotate(-56.76400700311deg); }
+.weed-moonth         { transform:rotate(-28.38200350156deg); }
+.harvest-moonth      { transform:rotate(-88.73966255487deg); }
+.wine-moonth         { transform:rotate(-59.15977503658deg); }
+.feast-moonth        { transform:rotate(-29.57988751830deg); }
 
 .center {
   position: absolute;
@@ -97,14 +97,14 @@ body {
   top: 0;
   left: 0;
 }
-.sun-cap:before { transform: rotate(15deg); -webkit-transform: rotate(15deg); }
-.sun-cap:after { transform: rotate(30deg); -webkit-transform: rotate(30deg); }
-.sun-piece-2 { transform: rotate(45deg); -webkit-transform: rotate(45deg); }
+.sun-cap:before { transform: rotate(15deg); }
+.sun-cap:after { transform: rotate(30deg); }
+.sun-piece-2 { transform: rotate(45deg); }
 
 .hour, .hours, .days, .minutes, .seconds {
   background-color:black;
   position:absolute;
-  transform-origin: left; -webkit-transform-origin: left;
+  transform-origin: left;
   text-align:right;
   height:4px;
   top:298px;
@@ -149,7 +149,7 @@ body {
   width:  15px;
   height: 15px;
   z-index: 200;
-  transform: rotate(45deg); -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 .star-cap:before, .star-cap:after {
   content: "";
@@ -160,8 +160,8 @@ body {
   top: 0;
   left: 0;
 }
-.star-cap:before { transform: rotate(30deg); -webkit-transform: rotate(30deg); }
-.star-cap:after { transform: rotate(60deg); -webkit-transform: rotate(60deg); }
+.star-cap:before { transform: rotate(30deg); }
+.star-cap:after { transform: rotate(60deg); }
 
 .star-minutes { left: 104px; }
 .star-seconds { left: 64px; }
@@ -218,7 +218,7 @@ body {
   height: 30px;
   left: 240px;
   top:  5px;
-  transform: rotate(15deg); -webkit-transform: rotate(15deg);
+  transform: rotate(15deg);
 }
 
 .moon-darkside {
@@ -234,69 +234,69 @@ body {
   height:20px;
   top:290px;
   left:290px;
-  transform-origin: center; -webkit-transform-origin: center;
+  transform-origin: center;
   z-index:30;
 }
 
 .hour-text {
   position: absolute;
   text-align: center;
-  transform-origin: center; -webkit-transform-origin: center;
+  transform-origin: center;
   width: 20px;
   left: 325px;
 }
 
 .hour-night { color:azure; }
 
-.hour-1  { transform: rotate(285deg); -webkit-transform: rotate(285deg); }
-.hour-2  { transform: rotate(300deg); -webkit-transform: rotate(300deg); }
-.hour-3  { transform: rotate(315deg); -webkit-transform: rotate(315deg); }
-.hour-4  { transform: rotate(330deg); -webkit-transform: rotate(330deg); }
-.hour-5  { transform: rotate(345deg); -webkit-transform: rotate(345deg); }
-.hour-6  { transform: rotate(  0deg); -webkit-transform: rotate(  0deg); }
-.hour-7  { transform: rotate( 15deg); -webkit-transform: rotate( 15deg); }
-.hour-8  { transform: rotate( 30deg); -webkit-transform: rotate( 30deg); }
-.hour-9  { transform: rotate( 45deg); -webkit-transform: rotate( 45deg); }
-.hour-10 { transform: rotate( 60deg); -webkit-transform: rotate( 60deg); }
-.hour-11 { transform: rotate( 75deg); -webkit-transform: rotate( 75deg); }
-.hour-12 { transform: rotate( 90deg); -webkit-transform: rotate( 90deg); }
-.hour-13 { transform: rotate(105deg); -webkit-transform: rotate(105deg); }
-.hour-14 { transform: rotate(120deg); -webkit-transform: rotate(120deg); }
-.hour-15 { transform: rotate(135deg); -webkit-transform: rotate(135deg); }
-.hour-16 { transform: rotate(150deg); -webkit-transform: rotate(150deg); }
-.hour-17 { transform: rotate(165deg); -webkit-transform: rotate(165deg); }
-.hour-18 { transform: rotate(180deg); -webkit-transform: rotate(180deg); }
-.hour-19 { transform: rotate(195deg); -webkit-transform: rotate(195deg); }
-.hour-20 { transform: rotate(210deg); -webkit-transform: rotate(210deg); }
-.hour-21 { transform: rotate(225deg); -webkit-transform: rotate(225deg); }
-.hour-22 { transform: rotate(240deg); -webkit-transform: rotate(240deg); }
-.hour-23 { transform: rotate(255deg); -webkit-transform: rotate(255deg); }
-.hour-24 { transform: rotate(270deg); -webkit-transform: rotate(270deg); }
+.hour-1  { transform: rotate(285deg); }
+.hour-2  { transform: rotate(300deg); }
+.hour-3  { transform: rotate(315deg); }
+.hour-4  { transform: rotate(330deg); }
+.hour-5  { transform: rotate(345deg); }
+.hour-6  { transform: rotate(  0deg); }
+.hour-7  { transform: rotate( 15deg); }
+.hour-8  { transform: rotate( 30deg); }
+.hour-9  { transform: rotate( 45deg); }
+.hour-10 { transform: rotate( 60deg); }
+.hour-11 { transform: rotate( 75deg); }
+.hour-12 { transform: rotate( 90deg); }
+.hour-13 { transform: rotate(105deg); }
+.hour-14 { transform: rotate(120deg); }
+.hour-15 { transform: rotate(135deg); }
+.hour-16 { transform: rotate(150deg); }
+.hour-17 { transform: rotate(165deg); }
+.hour-18 { transform: rotate(180deg); }
+.hour-19 { transform: rotate(195deg); }
+.hour-20 { transform: rotate(210deg); }
+.hour-21 { transform: rotate(225deg); }
+.hour-22 { transform: rotate(240deg); }
+.hour-23 { transform: rotate(255deg); }
+.hour-24 { transform: rotate(270deg); }
 
-.hour-1-text  {transform: rotate(-105deg); -webkit-transform: rotate(-105deg); }
-.hour-2-text  {transform: rotate(-120deg); -webkit-transform: rotate(-120deg); }
-.hour-3-text  {transform: rotate(-135deg); -webkit-transform: rotate(-135deg); }
-.hour-4-text  {transform: rotate(-150deg); -webkit-transform: rotate(-150deg); }
-.hour-5-text  {transform: rotate(-165deg); -webkit-transform: rotate(-165deg); }
-.hour-6-text  {transform: rotate(-180deg); -webkit-transform: rotate(-180deg); }
-.hour-7-text  {transform: rotate( 165deg); -webkit-transform: rotate( 165deg); }
-.hour-8-text  {transform: rotate( 150deg); -webkit-transform: rotate( 150deg); }
-.hour-9-text  {transform: rotate( 135deg); -webkit-transform: rotate( 135deg); }
-.hour-10-text {transform: rotate( 120deg); -webkit-transform: rotate( 120deg); }
-.hour-11-text {transform: rotate( 105deg); -webkit-transform: rotate( 105deg); }
-.hour-12-text {transform: rotate(  90deg); -webkit-transform: rotate(  90deg); }
-.hour-13-text {transform: rotate(  75deg); -webkit-transform: rotate(  75deg); }
-.hour-14-text {transform: rotate(  60deg); -webkit-transform: rotate(  60deg); }
-.hour-15-text {transform: rotate(  45deg); -webkit-transform: rotate(  45deg); }
-.hour-16-text {transform: rotate(  30deg); -webkit-transform: rotate(  30deg); }
-.hour-17-text {transform: rotate(  15deg); -webkit-transform: rotate(  15deg); }
-.hour-18-text {transform: rotate(   0deg); -webkit-transform: rotate(   0deg); }
-.hour-19-text {transform: rotate( -15deg); -webkit-transform: rotate( -15deg); }
-.hour-20-text {transform: rotate( -30deg); -webkit-transform: rotate( -30deg); }
-.hour-21-text {transform: rotate( -45deg); -webkit-transform: rotate( -45deg); }
-.hour-22-text {transform: rotate( -60deg); -webkit-transform: rotate( -60deg); }
-.hour-23-text {transform: rotate( -75deg); -webkit-transform: rotate( -75deg); }
-.hour-24-text {transform: rotate( -90deg); -webkit-transform: rotate( -90deg); }
+.hour-1-text  {transform: rotate(-105deg); }
+.hour-2-text  {transform: rotate(-120deg); }
+.hour-3-text  {transform: rotate(-135deg); }
+.hour-4-text  {transform: rotate(-150deg); }
+.hour-5-text  {transform: rotate(-165deg); }
+.hour-6-text  {transform: rotate(-180deg); }
+.hour-7-text  {transform: rotate( 165deg); }
+.hour-8-text  {transform: rotate( 150deg); }
+.hour-9-text  {transform: rotate( 135deg); }
+.hour-10-text {transform: rotate( 120deg); }
+.hour-11-text {transform: rotate( 105deg); }
+.hour-12-text {transform: rotate(  90deg); }
+.hour-13-text {transform: rotate(  75deg); }
+.hour-14-text {transform: rotate(  60deg); }
+.hour-15-text {transform: rotate(  45deg); }
+.hour-16-text {transform: rotate(  30deg); }
+.hour-17-text {transform: rotate(  15deg); }
+.hour-18-text {transform: rotate(   0deg); }
+.hour-19-text {transform: rotate( -15deg); }
+.hour-20-text {transform: rotate( -30deg); }
+.hour-21-text {transform: rotate( -45deg); }
+.hour-22-text {transform: rotate( -60deg); }
+.hour-23-text {transform: rotate( -75deg); }
+.hour-24-text {transform: rotate( -90deg); }
 
 .minute {
   position: absolute;
@@ -306,43 +306,43 @@ body {
   height: 20px;
   top: 290px;
   left: 290px;
-  transform-origin: center; -webkit-transform-origin: center;
+  transform-origin: center;
   z-index: 300;
 }
 
 .minute-text {
   position: absolute;
   text-align: center;
-  transform-origin: center; -webkit-transform-origin: center;
+  transform-origin: center;
   width: 20px;
   left: -135px;
 }
 
-.minute-5  { transform: rotate(120deg); -webkit-transform: rotate(120deg); }
-.minute-10 { transform: rotate(150deg); -webkit-transform: rotate(150deg); }
-.minute-15 { transform: rotate(180deg); -webkit-transform: rotate(180deg); }
-.minute-20 { transform: rotate(210deg); -webkit-transform: rotate(210deg); }
-.minute-25 { transform: rotate(240deg); -webkit-transform: rotate(240deg); }
-.minute-30 { transform: rotate(270deg); -webkit-transform: rotate(270deg); }
-.minute-35 { transform: rotate(300deg); -webkit-transform: rotate(300deg); }
-.minute-40 { transform: rotate(330deg); -webkit-transform: rotate(330deg); }
-.minute-45 { transform: rotate(0deg); -webkit-transform: rotate(0deg); }
-.minute-50 { transform: rotate(30deg); -webkit-transform: rotate(30deg); }
-.minute-55 { transform: rotate(60deg); -webkit-transform: rotate(60deg); }
-.minute-60 { transform: rotate(90deg); -webkit-transform: rotate(90deg); }
+.minute-5  { transform: rotate(120deg); }
+.minute-10 { transform: rotate(150deg); }
+.minute-15 { transform: rotate(180deg); }
+.minute-20 { transform: rotate(210deg); }
+.minute-25 { transform: rotate(240deg); }
+.minute-30 { transform: rotate(270deg); }
+.minute-35 { transform: rotate(300deg); }
+.minute-40 { transform: rotate(330deg); }
+.minute-45 { transform: rotate(0deg); }
+.minute-50 { transform: rotate(30deg); }
+.minute-55 { transform: rotate(60deg); }
+.minute-60 { transform: rotate(90deg); }
 
-.minute-5-text  { transform: rotate(60deg); -webkit-transform: rotate(60deg); }
-.minute-10-text { transform: rotate(30deg); -webkit-transform: rotate(30deg); }
-.minute-15-text { transform: rotate(0deg); -webkit-transform: rotate(0deg); }
-.minute-20-text { transform: rotate(330deg); -webkit-transform: rotate(330deg); }
-.minute-25-text { transform: rotate(300deg); -webkit-transform: rotate(300deg); }
-.minute-30-text { transform: rotate(270deg); -webkit-transform: rotate(270deg); }
-.minute-35-text { transform: rotate(240deg); -webkit-transform: rotate(240deg); }
-.minute-40-text { transform: rotate(210deg); -webkit-transform: rotate(210deg); }
-.minute-45-text { transform: rotate(180deg); -webkit-transform: rotate(180deg); }
-.minute-50-text { transform: rotate(150deg); -webkit-transform: rotate(150deg); }
-.minute-55-text { transform: rotate(120deg); -webkit-transform: rotate(120deg); }
-.minute-60-text { transform: rotate(90deg); -webkit-transform: rotate(90deg); }
+.minute-5-text  { transform: rotate(60deg); }
+.minute-10-text { transform: rotate(30deg); }
+.minute-15-text { transform: rotate(0deg); }
+.minute-20-text { transform: rotate(330deg); }
+.minute-25-text { transform: rotate(300deg); }
+.minute-30-text { transform: rotate(270deg); }
+.minute-35-text { transform: rotate(240deg); }
+.minute-40-text { transform: rotate(210deg); }
+.minute-45-text { transform: rotate(180deg); }
+.minute-50-text { transform: rotate(150deg); }
+.minute-55-text { transform: rotate(120deg); }
+.minute-60-text { transform: rotate(90deg); }
 
 .ticks-box {
   position: relative;
@@ -361,12 +361,12 @@ body {
   height: 1px;
   top: 299px;
   left: 298px;
-  transform-origin: center; -webkit-transform-origin: center;
+  transform-origin: center;
 }
 
 .day-tick {
   background-color: black;
-  transform-origin: center; -webkit-transform-origin: center;
+  transform-origin: center;
   width: 4px;
   height: 1px;
   left: 298px;
