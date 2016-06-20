@@ -195,18 +195,41 @@ body {
   border-radius: 50%;
 }
 
-.earth-apsis {
-  left: 175px;
+.you-are-here-box {
+  width: 40px;
+  height: 40px;
 }
 
-.north-cap {
-  background-color: white;
-  left: 35px;
+.you-are-here {
+  background-color: goldenrod;
+  left: 15px;
+  top: 30px;
+  width: 10px;
+  height: 10px;
+  clip: rect(5px, 10px, 10px, 0px);
 }
 
 .south-cap {
   background-color: white;
-  left: -35px;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  left: 10px;
+}
+
+.moon-box {
+  background-color: transparent;
+  height: 30px;
+  top:  285px;
+  transform: rotate(42deg);
+}
+
+.moon-orbit-box {
+  position: absolute;
+  background-color: transparent;
+  width:  40px;
+  height: 40px;
+  transform: rotate(180deg);
 }
 
 .moon {
@@ -216,16 +239,43 @@ body {
   border-radius: 50%;
   width:  30px;
   height: 30px;
-  left: 240px;
+  left: 300px;
+}
+
+.moon-orbit {
+  position: absolute;
+  overflow: hidden;
+  background-color: yellow;
+  border-radius: 50%;
+  width:  30px;
+  height: 30px;
+  left: -30px;
   top:  5px;
-  transform: rotate(15deg);
+  transform: rotate(-90deg);
 }
 
 .moon-darkside {
   background-color: midnightblue;
   position: relative;
-  top:  7px;
+  border-radius: 50%;
+  top:  -7px;
   left: 0px;
+  width:  30px;
+  height: 30px;
+}
+
+.moon-shadow {
+  background-color: midnightblue;
+  position: relative;
+  top:  -15px;
+  left: 0px;
+  width:  30px;
+  height: 30px;
+}
+
+.earth-apsis {
+  position: absolute;
+  left: 180px;
 }
 
 .hour {
