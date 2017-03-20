@@ -36,96 +36,77 @@ const SeasonClock = () => {
     const moonBox      = document.querySelector('.moon-box');
     const ticksBox     = document.querySelector('.ticks-box');
 
-    makeDayTicks();
-    setClock();
-    setInterval(setClock, 1000);
+    const setNextDay = (date) => {
+        date.setDate(date.getDate() + 1);
+    };
 
-    function makeDayTicks() {
-        var nextDate = getNewYear(new Date());
-        var daysPerYear = getDaysPerYear(nextDate);
-
-        for (let i = 1; i <= 89; i++, setNextDay(nextDate)) {
-            ticksBox.appendChild(makeDayTick(nextDate));
+    const getNewYear = (now) => {
+        let startYear = now.getFullYear();
+        let startMonth = -1;
+        if (now.getMonth() == 11) {
+            if (now.getDate() > 21 || (now.getDate() == 21 && now.getHours() >= 12)) {
+                startMonth = 11;
+            }
         }
 
-        for (let i = 90; i < (daysPerYear - 90); i++, setNextDay(nextDate)) {
-            ticksBox.appendChild(makeDayTick(nextDate));
+        return new Date(startYear, startMonth, 21,12,0,0); // noon on Winter solstice
+    };
+
+    const getDaysPerYear = (newyear) => {
+        let nextYear = new Date(newyear);
+        nextYear.setFullYear(nextYear.getFullYear()+1);
+
+        return (nextYear - newyear) / MILLISEC_PER_DAY;
+    };
+
+    const getYearDegree = (now) => {
+        let newyear = getNewYear(now);
+        let dayOfYear = (now - newyear) / MILLISEC_PER_DAY;
+        let daysPerYear = getDaysPerYear(newyear);
+
+        if (dayOfYear <= 89) {
+            // first quarter
+            return (dayOfYear/89)*90;
         }
 
-        for (let i = (daysPerYear - 90); i <= daysPerYear; i++, setNextDay(nextDate)) {
-            ticksBox.appendChild(makeDayTick(nextDate));
-        }
-    }
-
-    function makeDayTick(date) {
-        let dayTickBox = document.createElement("div");
-
-        dayTickBox.classList.add("day-tick-box");
-        dayTickBox.style.transform = `rotate(${getYearDegree(date) + 270}deg)`;
-
-        let dayTick = document.createElement("div");
-        dayTickBox.appendChild(dayTick);
-
-        dayTick.classList.add("day-tick-box");
-        dayTick.classList.add("day-tick");
-        dayTick.title = date.toDateString();
-
-        if (date.getDate() == 1) {
-            dayTick.classList.add("day-big-tick");
+        if (dayOfYear >= (daysPerYear - 90)) {
+            // last quarter
+            return 270 + dayOfYear - (daysPerYear - 90);
         }
 
-        switch (date.getMonth()) {
-            case 0:
-                if (date.getDate() == 1) {
-                    dayTick.classList.add("holiday");
-                }
-                break;
-            case 1:
-                if (date.getDate() == 4 || date.getDate() == 14) {
-                    dayTick.classList.add("holiday");
-                }
-                break;
-            case 2:
-                if (date.getDate() == 17) {
-                    dayTick.classList.add("holiday");
-                }
-                break;
-            case 4:
-                if (date.getDate() == 6) {
-                    dayTick.classList.add("holiday");
-                }
-                break;
-            case 6:
-                if (date.getDate() == 4) {
-                    dayTick.classList.add("holiday");
-                }
-                break;
-            case 7:
-                if (date.getDate() == 7) {
-                    dayTick.classList.add("holiday");
-                }
-                break;
-            case 9:
-                if (date.getDate() == 31) {
-                    dayTick.classList.add("holiday");
-                }
-                break;
-            case 10:
-                if (date.getDate() == 6) {
-                    dayTick.classList.add("holiday");
-                }
-                break;
-            case 11:
-                if (date.getDate() == 25) {
-                    dayTick.classList.add("holiday");
-                }
-                break;
+        // 1/2 the year around summer solstice
+        return 90 + ((dayOfYear-89) / (daysPerYear-179)) * 180;
+    };
+
+    const getMoonPhase = (now) => {
+        let phase = ((now - NEW_MOON_PHASE_START) / MILLISEC_PER_DAY) % DAYS_PER_MOONTH;
+        return phase/DAYS_PER_MOONTH;
+    };
+
+    const getEarthDistance = (now) => {
+        let perihelion = new Date(now.getFullYear(), 0, 4, 12,0,0);
+        let daysPerYear = getDaysPerYear(perihelion);
+        let dayOfYear = Math.abs((now - perihelion) / MILLISEC_PER_DAY);
+
+        if (dayOfYear > daysPerYear/2) {
+            dayOfYear = daysPerYear - dayOfYear;
         }
 
-        return dayTickBox;
-    }
+        return 180 + (dayOfYear*2/daysPerYear) * 40;
+    };
 
-    function setClock() {
+    const getMoonDraconicCycle = (now) => {
+        let cycleMin = DRACONIC_CYCLE_DAYS * .25;
+        let dayOfCycle = Math.abs((now - DRACONIC_CYCLE_START) / MILLISEC_PER_DAY - cycleMin) % DRACONIC_CYCLE_DAYS;
+
+        if (dayOfCycle > DRACONIC_CYCLE_DAYS/2) {
+            dayOfCycle = DRACONIC_CYCLE_DAYS - dayOfCycle;
+        }
+
+        return 295 + (dayOfCycle*2/DRACONIC_CYCLE_DAYS) * 30;
+    };
+
+    const setClock = () => {
         let now = new Date();
         let seconds = now.getSeconds();
         let minutes = now.getMinutes();
@@ -193,75 +174,94 @@ const SeasonClock = () => {
                                     + "%, "
                                     + (phase > 0 ? "waxing" : "waning");
         moon.style.left         = getMoonDraconicCycle(now) + 'px';
-    }
+    };
 
-    function getYearDegree(now) {
-        let newyear = getNewYear(now);
-        let dayOfYear = (now - newyear) / MILLISEC_PER_DAY;
-        let daysPerYear = getDaysPerYear(newyear);
+    const makeDayTick = (date) => {
+        let dayTickBox = document.createElement("div");
 
-        if (dayOfYear <= 89) {
-            // first quarter
-            return (dayOfYear/89)*90;
+        dayTickBox.classList.add("day-tick-box");
+        dayTickBox.style.transform = `rotate(${getYearDegree(date) + 270}deg)`;
+
+        let dayTick = document.createElement("div");
+        dayTickBox.appendChild(dayTick);
+
+        dayTick.classList.add("day-tick-box");
+        dayTick.classList.add("day-tick");
+        dayTick.title = date.toDateString();
+
+        if (date.getDate() == 1) {
+            dayTick.classList.add("day-big-tick");
         }
 
-        if (dayOfYear >= (daysPerYear - 90)) {
-            // last quarter
-            return 270 + dayOfYear - (daysPerYear - 90);
+        switch (date.getMonth()) {
+            case 0:
+                if (date.getDate() == 1) {
+                    dayTick.classList.add("holiday");
+                }
+                break;
+            case 1:
+                if (date.getDate() == 4 || date.getDate() == 14) {
+                    dayTick.classList.add("holiday");
+                }
+                break;
+            case 2:
+                if (date.getDate() == 17) {
+                    dayTick.classList.add("holiday");
+                }
+                break;
+            case 4:
+                if (date.getDate() == 6) {
+                    dayTick.classList.add("holiday");
+                }
+                break;
+            case 6:
+                if (date.getDate() == 4) {
+                    dayTick.classList.add("holiday");
+                }
+                break;
+            case 7:
+                if (date.getDate() == 7) {
+                    dayTick.classList.add("holiday");
+                }
+                break;
+            case 9:
+                if (date.getDate() == 31) {
+                    dayTick.classList.add("holiday");
+                }
+                break;
+            case 10:
+                if (date.getDate() == 6) {
+                    dayTick.classList.add("holiday");
+                }
+                break;
+            case 11:
+                if (date.getDate() == 25) {
+                    dayTick.classList.add("holiday");
+                }
+                break;
         }
 
-        // 1/2 the year around summer solstice
-        return 90 + ((dayOfYear-89) / (daysPerYear-179)) * 180;
-    }
+        return dayTickBox;
+    };
 
-    function getMoonPhase(now) {
-        let phase = ((now - NEW_MOON_PHASE_START) / MILLISEC_PER_DAY) % DAYS_PER_MOONTH;
-        return phase/DAYS_PER_MOONTH;
-    }
+    const makeDayTicks = () => {
+        var nextDate = getNewYear(new Date());
+        var daysPerYear = getDaysPerYear(nextDate);
 
-    function getEarthDistance(now) {
-        let perihelion = new Date(now.getFullYear(), 0, 4, 12,0,0);
-        let daysPerYear = getDaysPerYear(perihelion);
-        let dayOfYear = Math.abs((now - perihelion) / MILLISEC_PER_DAY);
-
-        if (dayOfYear > daysPerYear/2) {
-            dayOfYear = daysPerYear - dayOfYear;
+        for (let i = 1; i <= 89; i++, setNextDay(nextDate)) {
+            ticksBox.appendChild(makeDayTick(nextDate));
         }
 
-        return 180 + (dayOfYear*2/daysPerYear) * 40;
-    }
-
-    function getMoonDraconicCycle(now) {
-        let cycleMin = DRACONIC_CYCLE_DAYS * .25;
-        let dayOfCycle = Math.abs((now - DRACONIC_CYCLE_START) / MILLISEC_PER_DAY - cycleMin) % DRACONIC_CYCLE_DAYS;
-
-        if (dayOfCycle > DRACONIC_CYCLE_DAYS/2) {
-            dayOfCycle = DRACONIC_CYCLE_DAYS - dayOfCycle;
+        for (let i = 90; i < (daysPerYear - 90); i++, setNextDay(nextDate)) {
+            ticksBox.appendChild(makeDayTick(nextDate));
         }
 
-        return 295 + (dayOfCycle*2/DRACONIC_CYCLE_DAYS) * 30;
-    }
-
-    function getNewYear(now) {
-        let startYear = now.getFullYear();
-        let startMonth = -1;
-        if (now.getMonth() == 11) {
-            if (now.getDate() > 21 || (now.getDate() == 21 && now.getHours() >= 12)) {
-                startMonth = 11;
-            }
+        for (let i = (daysPerYear - 90); i <= daysPerYear; i++, setNextDay(nextDate)) {
+            ticksBox.appendChild(makeDayTick(nextDate));
         }
+    };
 
-        return new Date(startYear, startMonth, 21,12,0,0); // noon on Winter solstice
-    }
-
-    function getDaysPerYear(newyear) {
-        let nextYear = new Date(newyear);
-        nextYear.setFullYear(nextYear.getFullYear()+1);
-
-        return (nextYear - newyear) / MILLISEC_PER_DAY;
-    }
-
-    function setNextDay(date) {
-        date.setDate(date.getDate() + 1);
-    }
+    makeDayTicks();
+    setClock();
+    setInterval(setClock, 1000);
 };
