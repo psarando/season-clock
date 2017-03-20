@@ -2,8 +2,7 @@
 layout: page
 ---
 
-Season Clock
-============
+## Season Clock
 
 If the year was divided into a 24-hour clock,
 centered around the [solstices](http://en.wikipedia.org/wiki/Solstice) and [equinoxes](http://en.wikipedia.org/wiki/Equinox),
