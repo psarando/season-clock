@@ -11,32 +11,58 @@
                 <div class="hours"></div>
                 <div class="hours sun-box"><div class="sun sol"></div></div>
                 <div class="hours moon-box">
-                    <div class="moon"><div class="moon-darkside"></div></div>
+                    <div class="moon-orbital-plane">
+                        <div class="moon">
+                            <svg class="moon-darkside" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                                <path id="moon-darkside-path"
+                                      fill="midnightblue"
+                                      d='M 0,15
+                                         A 15,7 0 0 1 30,15
+                                         A 15,15 0 0 1 0,15
+                                         z' />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
                 <div class="days"></div>
                 <div class="days earth-box">
-                    <div class="earth-apsis">
-                        <div class="moon-orbit-box">
-                            <div class="moon-orbit"><div class="moon-shadow"></div></div>
-                        </div>
-                        <div class="earth">
-                            <div class="earth south-cap"></div>
-                            <div class="you-are-here-box">
-                                <div class="earth you-are-here"></div>
+                    <div class="earth-system">
+                        <div class="earth-apsis">
+                            <div class="moon-orbit-box">
+                                <div class="moon-orbit"><div class="moon-shadow"></div></div>
+                            </div>
+                            <div class="earth">
+                                <div class="earth south-cap"></div>
+                                <div class="you-are-here-box">
+                                    <div class="earth you-are-here"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="center"></div>
-                <div class="minutes star"></div>
-                <div class="seconds star"></div>
-                <div class="minutes star-box">
-                    <div class="star-cap star-minutes star"></div>
-                </div>
-                <div class="seconds star-box">
-                    <div class="star-cap star-seconds star"></div>
+
+                <div class="minutes"></div>
+                <div class="minutes sky-box">
+                    <div class="minutes-cloud">
+                        <div class="clouds">
+                            <div class="cloud"></div>
+                        </div>
+                    </div>
                 </div>
 
+                <div class="seconds"></div>
+                <div class="seconds sky-box">
+                    <svg class="seconds-bird" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d='M 0,20
+                                 Q 10,0 20,15
+                                 Q 30,0 40,20
+                                 Q 30,5 20,20
+                                 Q 10,5  0,20
+                                 z' />
+                    </svg>
+                </div>
+
+                <div class="center"></div>
                 <div class="sun-cap"></div>
                 <div class="sun-cap sun-piece-2"></div>
 
@@ -53,11 +79,11 @@
                 <div class="season harvest-season"><div class="season moonth wine-moonth wine"></div></div>
                 <div class="season harvest-season"><div class="season moonth feast-moonth feast"></div></div>
 
-                <div class="hour hour-night hour-1"><div class="hour-text hour-1-text">1</div></div>
-                <div class="hour hour-night hour-2"><div class="hour-text hour-2-text">2</div></div>
-                <div class="hour hour-night hour-3"><div class="hour-text hour-3-text">3</div></div>
-                <div class="hour hour-night hour-4"><div class="hour-text hour-4-text">4</div></div>
-                <div class="hour hour-night hour-5"><div class="hour-text hour-5-text">5</div></div>
+                <div class="hour hour-1 night-text"><div class="hour-text hour-1-text">1</div></div>
+                <div class="hour hour-2 night-text"><div class="hour-text hour-2-text">2</div></div>
+                <div class="hour hour-3 night-text"><div class="hour-text hour-3-text">3</div></div>
+                <div class="hour hour-4 night-text"><div class="hour-text hour-4-text">4</div></div>
+                <div class="hour hour-5 night-text"><div class="hour-text hour-5-text">5</div></div>
                 <div class="hour hour-6"><div class="hour-text hour-6-text">6</div></div>
                 <div class="hour hour-7"><div class="hour-text hour-7-text">7</div></div>
                 <div class="hour hour-8"><div class="hour-text hour-8-text">8</div></div>
@@ -71,15 +97,15 @@
                 <div class="hour hour-16"><div class="hour-text hour-16-text">16</div></div>
                 <div class="hour hour-17"><div class="hour-text hour-17-text">17</div></div>
                 <div class="hour hour-18"><div class="hour-text hour-18-text">18</div></div>
-                <div class="hour hour-night hour-19"><div class="hour-text hour-19-text">19</div></div>
-                <div class="hour hour-night hour-20"><div class="hour-text hour-20-text">20</div></div>
-                <div class="hour hour-night hour-21"><div class="hour-text hour-21-text">21</div></div>
-                <div class="hour hour-night hour-22"><div class="hour-text hour-22-text">22</div></div>
-                <div class="hour hour-night hour-23"><div class="hour-text hour-23-text">23</div></div>
-                <div class="hour hour-night hour-24"><div class="hour-text hour-24-text">24</div></div>
+                <div class="hour hour-19 night-text"><div class="hour-text hour-19-text">19</div></div>
+                <div class="hour hour-20 night-text"><div class="hour-text hour-20-text">20</div></div>
+                <div class="hour hour-21 night-text"><div class="hour-text hour-21-text">21</div></div>
+                <div class="hour hour-22 night-text"><div class="hour-text hour-22-text">22</div></div>
+                <div class="hour hour-23 night-text"><div class="hour-text hour-23-text">23</div></div>
+                <div class="hour hour-24 night-text"><div class="hour-text hour-24-text">24</div></div>
 
-                <div class="minute minute-5 "><div class="minute-text minute-5-text">5</div></div>
-                <div class="minute minute-10"><div class="minute-text minute-10-text">10</div></div>
+                <div class="minute minute-5  night-text"><div class="minute-text minute-5-text">5</div></div>
+                <div class="minute minute-10 night-text"><div class="minute-text minute-10-text">10</div></div>
                 <div class="minute minute-15"><div class="minute-text minute-15-text">15</div></div>
                 <div class="minute minute-20"><div class="minute-text minute-20-text">20</div></div>
                 <div class="minute minute-25"><div class="minute-text minute-25-text">25</div></div>
@@ -87,9 +113,9 @@
                 <div class="minute minute-35"><div class="minute-text minute-35-text">35</div></div>
                 <div class="minute minute-40"><div class="minute-text minute-40-text">40</div></div>
                 <div class="minute minute-45"><div class="minute-text minute-45-text">45</div></div>
-                <div class="minute minute-50"><div class="minute-text minute-50-text">50</div></div>
-                <div class="minute minute-55"><div class="minute-text minute-55-text">55</div></div>
-                <div class="minute minute-60"><div class="minute-text minute-60-text">60</div></div>
+                <div class="minute minute-50 night-text"><div class="minute-text minute-50-text">50</div></div>
+                <div class="minute minute-55 night-text"><div class="minute-text minute-55-text">55</div></div>
+                <div class="minute minute-60 night-text"><div class="minute-text minute-60-text">60</div></div>
                 <div class="ticks-box"></div>
             </div>
         </div>

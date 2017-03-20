@@ -27,14 +27,16 @@ const SeasonClock = () => {
 
     const earthApsis   = document.querySelector('.earth-apsis');
     const earth        = document.querySelector('.earth');
-    const moonDarkside = document.querySelector('.moon-darkside');
     const moonOrbitEl  = document.querySelector('.moon-orbit');
     const moonOrbitBox = document.querySelector('.moon-orbit-box');
     const hereIsland   = document.querySelector('.you-are-here-box');
     const sun          = document.querySelector('.sun');
     const moon         = document.querySelector('.moon');
     const moonBox      = document.querySelector('.moon-box');
+    const clouds       = document.querySelector('.clouds');
     const ticksBox     = document.querySelector('.ticks-box');
+
+    const moonDarkside = document.getElementById('moon-darkside-path');
 
     const setNextDay = (date) => {
         date.setDate(date.getDate() + 1);
@@ -92,7 +94,7 @@ const SeasonClock = () => {
             dayOfYear = daysPerYear - dayOfYear;
         }
 
-        return 180 + (dayOfYear*2/daysPerYear) * 40;
+        return (dayOfYear*2/daysPerYear) * 50;
     };
 
     const getMoonDraconicCycle = (now) => {
@@ -103,7 +105,51 @@ const SeasonClock = () => {
             dayOfCycle = DRACONIC_CYCLE_DAYS - dayOfCycle;
         }
 
-        return 295 + (dayOfCycle*2/DRACONIC_CYCLE_DAYS) * 30;
+        return (dayOfCycle*2/DRACONIC_CYCLE_DAYS) * 50;
+    };
+
+    const getCloudDrift = (minutes, seconds) => {
+        let cloudHeight = (minutes % 5) + (seconds / 60);
+
+        if (cloudHeight > 2.5) {
+            cloudHeight = 5 - cloudHeight;
+        }
+
+        return (cloudHeight*2/5) * 60;
+    };
+
+    const setMoonPhaseSVGPath = (phase) => {
+        // phase => r  l d
+        // 0     => 15 1 1 new
+        // .25   => 0  1 1 first quarter waxing
+        // .25   => 0  0 1
+        // .5    => 15 0 1 full
+        // .5    => 15 1 0
+        // .75   => 0  1 0 last quarter waning
+        // .75   => 0  0 0
+        // 1     => 15 0 0 new
+
+        let waxing         = (phase <= 0.5),
+            crescent       = (phase < 0.25 || 0.75 < phase),
+            waxingCrescent = (waxing && crescent),
+            waningGibbous  = (!waxing && !crescent),
+            limbSweep      = (waxingCrescent || waningGibbous) ? 1 : 0,
+            darksideSweep  = waxing ? 1 : 0;
+
+        let phaseOffset    = (phase >= 0.75) ? 0.75 : (phase >= 0.5) ? 0.5 : (phase >= 0.25) ? 0.25 : 0,
+            radiusFraction = (phase - phaseOffset) * 4,
+            limbRadius     = 15 * radiusFraction;
+
+        if (limbSweep) {
+            limbRadius = 15 - limbRadius;
+        }
+
+        let path = `M 0,15
+                    A 15,${limbRadius} 0 0 ${limbSweep} 30,15
+                    A 15,15 0 1 ${darksideSweep} 0,15
+                    z`;
+
+        moonDarkside.setAttribute('d', path);
     };
 
     const setClock = () => {
@@ -120,6 +166,9 @@ const SeasonClock = () => {
         daysAngle = nextDaysAngle;
 
         let phase = getMoonPhase(now);
+
+        setMoonPhaseSVGPath(phase);
+
         if (phase > 0.5) {
             phase -= 1;
         }
@@ -129,7 +178,6 @@ const SeasonClock = () => {
 
         earthApsis.style.left        = getEarthDistance(now) + 'px';
         earth.title                  = now.toDateString();
-        moonDarkside.style.top       = (-60 * phase) + 'px';
         moonOrbitEl.title            = now.toDateString();
         moonOrbitEl.style.transform  = `rotate(${ -360 * phase + 90 }deg)`;
         moonOrbitBox.style.transform = `rotate(${ moonOrbit }deg)`;
@@ -174,6 +222,7 @@ const SeasonClock = () => {
                                     + "%, "
                                     + (phase > 0 ? "waxing" : "waning");
         moon.style.left         = getMoonDraconicCycle(now) + 'px';
+        clouds.style.left       = getCloudDrift(minutes, seconds) + 'px';
     };
 
     const makeDayTick = (date) => {

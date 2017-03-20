@@ -17,8 +17,8 @@ body {
 }
 
 .clock {
-  width:700px;
-  height:700px;
+  width:  640px;
+  height: 640px;
   margin: auto;
   background: linear-gradient(to bottom,
                               lightskyblue 40%,
@@ -30,11 +30,11 @@ body {
 }
 
 .seasons {
-  width:600px;
-  height:600px;
+  width:  480px;
+  height: 480px;
   background-color: gold;
   transform: rotate(180deg);
-  top: 50px;
+  top: 80px;
   margin: auto;
   border-radius:50%;
   position:relative;
@@ -42,10 +42,10 @@ body {
 
 .season {
   position: absolute;
-  width: 600px;
-  height: 600px;
+  width:  480px;
+  height: 480px;
   border-radius: 50%;
-  clip: rect(0px, 600px, 600px, 300px);
+  clip: rect(0px, 480px, 480px, 240px);
 }
 
 .winter-season    { transform: rotate(-90.206411907deg); }
@@ -53,7 +53,7 @@ body {
 .ocean-season     { transform: rotate( 89.51944736447deg); }
 .harvest-season   { transform: rotate(179.3698312774deg); }
 
-.moonth { clip: rect(0px, 300px, 600px, 0px); }
+.moonth { clip: rect(0px, 240px, 480px, 0px); }
 
 .newyear-moonth      { transform:rotate(-89.58717618601deg); }
 .valentines-moonth   { transform:rotate(-59.72478412401deg); }
@@ -70,12 +70,12 @@ body {
 
 .center {
   position: absolute;
-  background-color: black;
-  width: 300px;
-  height: 300px;
-  top: 150px;
-  left: 150px;
-  z-index: 100;
+  background-image: radial-gradient(120px at 50% 50%, gold 20%, black 50%);
+  width:  160px;
+  height: 160px;
+  top:  160px;
+  left: 160px;
+  z-index: 365;
   border-radius: 50%;
 }
 
@@ -84,8 +84,8 @@ body {
   background-color: gold;
   width:  50px;
   height: 50px;
-  top:  275px;
-  left: 275px;
+  top:  215px;
+  left: 215px;
   z-index:9999;
 }
 .sun-cap:before, .sun-cap:after {
@@ -107,8 +107,8 @@ body {
   transform-origin: left;
   text-align:right;
   height:4px;
-  top:298px;
-  left:300px;
+  top:  238px;
+  left: 240px;
   padding: 0 10px 0 0;
   border-radius: 50%;
   font-weight:bold;
@@ -117,73 +117,106 @@ body {
 
 .days {
   color: white;
-  width: 295px;
-  z-index: 20;
+  width: 235px;
+  z-index: 365;
 }
 
 .hours {
   color:white;
-  width:310px;
-  z-index:20;
+  width: 265px;
+  z-index: 24;
 }
 
 .minutes {
-  width: 100px;
-  z-index: 200;
+  width: 306px;
+  z-index: 60;
 }
 
 .seconds {
-  width: 60px;
-  z-index: 200;
+  width: 320px;
+  z-index: 60;
 }
 
-.star-box {
+.sky-box {
   background-color: transparent;
-  height: 15px;
-  top: 292px;
+  height: 20px;
+  top: 230px;
 }
 
-.star-cap {
+.minutes-cloud {
   position: absolute;
-  background-color: azure;
-  width:  15px;
-  height: 15px;
-  z-index: 200;
-  transform: rotate(45deg);
+  width:  40px;
+  height: 40px;
+  top:  -10px;
+  left: 240px;
 }
-.star-cap:before, .star-cap:after {
-  content: "";
+
+.clouds {
   position: absolute;
-  background-color: azure;
-  height: 15px;
-  width: 15px;
-  top: 0;
+  overflow: hidden;
+  border-radius: 20%/10px 0 0 10px;
+  background-color: transparent;
+  width:  40px;
+  height: 40px;
+}
+.cloud {
+  position: absolute;
+  border-radius: 50%;
+  background-color: whitesmoke;
+  width:  24px;
+  height: 22px;
+  top: 10px;
   left: 0;
 }
-.star-cap:before { transform: rotate(30deg); }
-.star-cap:after { transform: rotate(60deg); }
+.cloud:before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background-color: whitesmoke;
+  width:  18px;
+  height: 24px;
+  top:  -10px;
+  left: -2px;
+}
+.cloud:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background-color: whitesmoke;
+  width:  24px;
+  height: 24px;
+  top:   6px;
+  left: -5px;
+}
 
-.star-minutes { left: 104px; }
-.star-seconds { left: 64px; }
+.seconds-bird {
+  position: absolute;
+  background-color: transparent;
+  width:  24px;
+  height: 12px;
+  top:    4px;
+  left: 314px;
+  transform: rotate(90deg);
+}
 
 .sun-box {
   background-color: transparent;
   height: 30px;
-  top: 285px;
+  top: 225px;
 }
 
 .sun {
   position: absolute;
   width:  30px;
   height: 30px;
-  left: 310px;
+  left: 265px;
   border-radius: 50%;
 }
 
 .earth-box {
   background-color: transparent;
   height: 40px;
-  top: 280px;
+  top: 220px;
 }
 
 .earth {
@@ -220,8 +253,15 @@ body {
 .moon-box {
   background-color: transparent;
   height: 30px;
-  top:  285px;
-  transform: rotate(42deg);
+  top:  225px;
+  transform: rotate(-42deg);
+}
+
+.moon-orbital-plane {
+  position: absolute;
+  width:  30px;
+  height: 30px;
+  left: 240px;
 }
 
 .moon-orbit-box {
@@ -239,7 +279,6 @@ body {
   border-radius: 50%;
   width:  30px;
   height: 30px;
-  left: 300px;
 }
 
 .moon-orbit {
@@ -255,13 +294,8 @@ body {
 }
 
 .moon-darkside {
-  background-color: midnightblue;
-  position: relative;
-  border-radius: 50%;
-  top:  -7px;
-  left: 0px;
-  width:  30px;
-  height: 30px;
+  width: 30px;
+  transform: rotate(180deg);
 }
 
 .moon-shadow {
@@ -273,19 +307,24 @@ body {
   height: 30px;
 }
 
+.earth-system {
+  position: absolute;
+  left: 110px;
+}
+
 .earth-apsis {
   position: absolute;
-  left: 180px;
+  left: 50px;
 }
 
 .hour {
   background-color:transparent;
   width:20px;
   height:20px;
-  top:290px;
-  left:290px;
+  top:  230px;
+  left: 230px;
   transform-origin: center;
-  z-index:30;
+  z-index: 24;
 }
 
 .hour-text {
@@ -293,10 +332,10 @@ body {
   text-align: center;
   transform-origin: center;
   width: 20px;
-  left: 325px;
+  left: 280px;
 }
 
-.hour-night { color:azure; }
+.night-text { color:azure; }
 
 .hour-1  { transform: rotate(285deg); }
 .hour-2  { transform: rotate(300deg); }
@@ -351,21 +390,22 @@ body {
 .minute {
   position: absolute;
   background-color: transparent;
-  color: azure;
   width: 20px;
   height: 20px;
-  top: 290px;
-  left: 290px;
+  top:  230px;
+  left: 230px;
   transform-origin: center;
-  z-index: 300;
+  z-index: 24;
 }
 
 .minute-text {
   position: absolute;
   text-align: center;
   transform-origin: center;
+  top: 4px;
   width: 20px;
-  left: -135px;
+  left: -310px;
+  font-size: x-small;
 }
 
 .minute-5  { transform: rotate(120deg); }
@@ -397,8 +437,8 @@ body {
 .ticks-box {
   position: relative;
   background-color: transparent;
-  width: 600px;
-  height: 600px;
+  width:  480px;
+  height: 480px;
   top: 0px;
   left: 0px;
   z-index: 10;
@@ -409,8 +449,8 @@ body {
   background-color: transparent;
   width: 4px;
   height: 1px;
-  top: 299px;
-  left: 298px;
+  top:  239px;
+  left: 238px;
   transform-origin: center;
 }
 
@@ -419,13 +459,13 @@ body {
   transform-origin: center;
   width: 4px;
   height: 1px;
-  left: 298px;
+  left: 238px;
   top: 0px;
 }
 
 .day-big-tick {
   width: 8px;
-  left: 294px;
+  left: 234px;
 }
 
 .star           { background-color: azure; }
