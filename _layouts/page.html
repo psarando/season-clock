@@ -1,0 +1,47 @@
+---
+---
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+    {% include header.html %}
+    <title>Season Clock: A Lunisolar Chronometer for Modern Times</title>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">{{ site.github.project_title }}</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">{{ site.github.project_tagline }}</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="{{ site.github.repository_url }}/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="{{ site.github.repository_url }}/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="{{ site.github.repository_url }}" class="code">View season-clock on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+            {% include index.html %}
+            {{ content }}
+        </article>
+      </div>
+    </div>
+    <footer>
+        {% include footer.html %}
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="{{ site.github.repository_url }}/tarball/master" class="tar">tar</a><a href="{{ site.github.repository_url }}/zipball/master" class="zip">zip</a><a href="{{ site.github.repository_url }}" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+
+</body>
+</html>
