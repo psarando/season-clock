@@ -112,7 +112,7 @@ body {
   padding: 0 10px 0 0;
   border-radius: 50%;
   font-weight:bold;
-  transition: transform 1000ms linear;
+  transition: transform 600ms cubic-bezier(0.8,0.2,0.5,1.2);
 }
 
 .days {
